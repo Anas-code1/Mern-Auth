@@ -42,7 +42,11 @@ export const register = async (req, res) => {
       subject: "Welcome to Great Anas stack",
       text: `your account is created with email id: ${email}`,
     };
-    await transporter.sendMail(mailOptions);
+    try {
+      await transporter.sendMail(mailOptions);
+    } catch (err) {
+      console.log("Email failed:", err.message);
+    }
 
     return res.json({ success: true, message: "successfully registered " });
   } catch (error) {
@@ -226,36 +230,36 @@ export const resetPassword = async (req, res) => {
   }
 
   try {
-    const user = await userModel.findOne({email})
-    if (!user){
+    const user = await userModel.findOne({ email });
+    if (!user) {
       return res.json({
-      success: false,
-      message: "user not found",
-    });
+        success: false,
+        message: "user not found",
+      });
     }
 
-    if (user.resetOtp === "" || user.resetOtp !== otp){
+    if (user.resetOtp === "" || user.resetOtp !== otp) {
       return res.json({
-      success: false,
-      message: "invalid otp",
-    });
+        success: false,
+        message: "invalid otp",
+      });
     }
 
-    if (user.resetOtpExpireAt < Date.now()){
+    if (user.resetOtpExpireAt < Date.now()) {
       return res.json({
-      success: false,
-      message: "otp expired",
-    });
+        success: false,
+        message: "otp expired",
+      });
     }
 
-    const hashedPassword = await bcrypt.hash(newPassword, 10)
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
 
-    user.password = hashedPassword
+    user.password = hashedPassword;
 
-    user.resetOtp = ""
-    user.resetOtpExpireAt = 0
+    user.resetOtp = "";
+    user.resetOtpExpireAt = 0;
 
-    await user.save()
+    await user.save();
 
     return res.json({
       success: true,
@@ -267,6 +271,4 @@ export const resetPassword = async (req, res) => {
       message: error.message,
     });
   }
-
-
 };

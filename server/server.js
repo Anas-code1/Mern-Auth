@@ -14,7 +14,10 @@ connectDB()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin: 'http://localhost:5173', credentials: true}))
+app.use(cors({
+  origin: "https://mern-auth-orcin.vercel.app",
+  credentials: true
+}));
 
 // api endpoints
 app.get('/',(req,res)=>{
