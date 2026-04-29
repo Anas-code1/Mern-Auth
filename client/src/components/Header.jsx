@@ -6,7 +6,7 @@ const Header = () => {
   const { userData } = useContext(AppContent);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-6xl mx-auto mt-24 lg:mt-32 px-6 lg:px-12 text-white relative z-10 gap-12">
+    <div className="flex flex-col-reverse lg:flex-row items-center justify-between w-full max-w-6xl mx-auto mt-24 lg:mt-32 px-6 lg:px-12 text-white relative z-10 gap-12">
       
       {/* Left Text Content */}
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1">
