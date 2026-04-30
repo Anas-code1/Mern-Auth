@@ -47,7 +47,7 @@ const Navbar = () => {
     }
   return (
     <div className="w-full flex justify-between items-center p-4 sm:p-6 sm:px-24 absolute top-0 z-50">
-      <img src={assets.logo} alt="" className="w-28 sm:w-32 cursor-pointer" onClick={() => navigate('/')} />
+      <img src={assets.logo} alt="" className="w-44 sm:w-52 cursor-pointer" onClick={() => navigate('/')} />
       {userData ? (
         <div className="w-10 h-10 flex justify-center items-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white relative group cursor-pointer shadow-[0_0_15px_rgba(167,139,250,0.5)] border border-purple-300/30">
           <span className="font-semibold text-lg">{userData.name[0].toUpperCase()}</span>

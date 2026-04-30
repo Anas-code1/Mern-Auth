@@ -30,6 +30,7 @@ function Login() {
         if (data.success) {
           setIsLoggedIn(true);
           await getUserData();
+          toast.success("Successfully signed up!");
           navigate("/");
         } else {
           toast.error(data.message);
@@ -43,6 +44,7 @@ function Login() {
         if (data.success) {
           setIsLoggedIn(true);
           await getUserData();
+          toast.success("Successfully logged in!");
           navigate("/");
         } else {
           toast.error(data.message);
@@ -140,7 +142,7 @@ function Login() {
               />
             </div>
 
-            <button className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-base mb-5 shadow-lg hover:shadow-purple-500/50 hover:scale-[1.02] transition-all cursor-pointer">
+            <button  className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-base mb-5 shadow-lg hover:shadow-purple-500/50 hover:scale-[1.02] transition-all cursor-pointer">
               {state === "Sign Up" ? "Sign Up Now" : "Login"}
             </button>
             
