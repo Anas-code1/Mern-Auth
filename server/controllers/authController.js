@@ -209,7 +209,7 @@ export const sendResetOtp = async (req, res) => {
       text: `your otp for resetting password is ${otp} `,
     };
 
-    await transporter.sendMail(mailOptions);
+    // await transporter.sendMail(mailOptions);
 
     return res.json({ success: true, message: "otp sent to your email" });
   } catch (error) {
