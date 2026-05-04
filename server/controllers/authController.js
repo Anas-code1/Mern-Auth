@@ -213,6 +213,7 @@ export const sendResetOtp = async (req, res) => {
 
     return res.json({ success: true, message: "otp sent to your email" });
   } catch (error) {
+    console.error("NODEMAILER SMTP ERROR:", error);
     return res.json({ success: false, message: error.message });
   }
 };
