@@ -123,7 +123,7 @@ function EmailVerify() {
               ))}
           </div>
 
-          <button className="w-full py-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-base shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
+          <button type="submit" className="w-full py-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-base shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
             Verify Now
           </button>
         </form>

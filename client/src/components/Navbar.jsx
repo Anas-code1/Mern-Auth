@@ -54,11 +54,11 @@ const Navbar = () => {
           <div className="absolute hidden group-hover:block top-full right-0 z-10 pt-2">
             <ul className="list-none m-0 p-2 glass-panel rounded-xl text-sm min-w-[150px] shadow-2xl">
               {!userData.isAccountVerified && (
-                <li onClick={sendVerificationOtp} className="py-2 px-3 text-purple-100 hover:bg-white/10 hover:text-white transition-colors cursor-pointer rounded-md mb-1">
+                <li onMouseDown={(e) => { e.preventDefault(); sendVerificationOtp(); }} className="py-2 px-3 text-purple-100 hover:bg-white/10 hover:text-white transition-colors cursor-pointer rounded-md mb-1">
                   Verify Email
                 </li>
               )}
-              <li onClick={logout} className="py-2 px-3 text-purple-100 hover:bg-white/10 hover:text-white transition-colors cursor-pointer rounded-md">
+              <li onMouseDown={(e) => { e.preventDefault(); logout(); }} className="py-2 px-3 text-purple-100 hover:bg-white/10 hover:text-white transition-colors cursor-pointer rounded-md">
                 Logout
               </li>
             </ul>

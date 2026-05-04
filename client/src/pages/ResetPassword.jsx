@@ -147,7 +147,7 @@ function ResetPassword() {
                 required
               />
             </div>
-            <button className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold mt-3 shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
+            <button type="submit" className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold mt-3 shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
               Send OTP
             </button>
           </form>
@@ -181,7 +181,7 @@ function ResetPassword() {
                 ))}
             </div>
 
-            <button className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold mt-3 shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
+            <button type="submit" className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold mt-3 shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
               Verify OTP
             </button>
           </form>
@@ -209,7 +209,7 @@ function ResetPassword() {
                 required
               />
             </div>
-            <button className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold mt-3 shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
+            <button type="submit" className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold mt-3 shadow-lg hover:shadow-purple-500/40 hover:scale-[1.02] transition-all cursor-pointer">
               Reset Password
             </button>
           </form>
