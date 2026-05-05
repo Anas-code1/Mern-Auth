@@ -195,23 +195,37 @@ export const sendResetOtp = async (req, res) => {
       return res.json({ success: false, message: "user not found" });
     }
 
+    // prevent spam
+    if (user.resetOtpExpireAt > Date.now()) {
+      return res.json({
+        success: false,
+        message: "Wait before requesting another OTP",
+      });
+    }
+
     const otp = String(Math.floor(100000 + Math.random() * 900000));
 
     user.resetOtp = otp;
     user.resetOtpExpireAt = Date.now() + 15 * 60 * 1000;
-
     await user.save();
 
     const mailOptions = {
       from: process.env.SENDER_EMAIL,
       to: user.email,
-      subject: "Passwrod reset otp",
-      text: `your otp for resetting password is ${otp} `,
+      subject: "Password reset OTP",
+      text: `Your OTP is ${otp}`,
     };
 
-    await transporter.sendMail(mailOptions);
+    // async email (non-blocking)
+    transporter.sendMail(mailOptions)
+      .then(() => console.log("OTP email sent"))
+      .catch(err => console.log("Email error:", err));
 
-    return res.json({ success: true, message: "otp sent to your email" });
+    return res.json({
+      success: true,
+      message: "OTP generated",
+    });
+
   } catch (error) {
     console.error("NODEMAILER SMTP ERROR:", error);
     return res.json({ success: false, message: error.message });
